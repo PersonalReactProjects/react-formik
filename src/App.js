@@ -1,13 +1,16 @@
 import React from 'react';
 import YoutubeForm from './components/YoutubeForm'
-import './App.css';
-
+import { Switch, Route } from 'react-router-dom'
+import Form from './components/FormikMaterialUI'
 
 function App() {
 
   return (
     <div className="App">
-      <YoutubeForm />
+      <Switch>
+        <Route exact path="/" component={YoutubeForm} />
+        <Route exact path="/forms" component={Form} />
+      </Switch>
     </div>
   );
 }
