@@ -42,7 +42,7 @@ function FormikMaterialUI() {
                                     acceptTermsAndConditions: boolean().oneOf([true], "You have to accept Terms and Conditions"),
                                     investmentRisk: array(string().oneOf(['High', 'Medium', 'Low',], "You have to choose one of the values of High, Medium or Low ")).min(1, "Choose at least one of the given values"),
                                     commentAboutInvestmentRisk: mixed().when('investmentRisk', {
-                                        is: (investmentRisk: string[]) => investmentRisk.find(ir => ir === 'High'),
+                                        is: (investmentRisk) => investmentRisk.find(ir => ir === 'High'),
                                         then: string().required("This field is required").min(20, "Minimum of 20 characters").max(100, "Maximum of 100 characters"),
                                         otherwise: string().min(20, "Minimum of 20 characters").max(100, "Maximum of 100 characters")
                                     })
