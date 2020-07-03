@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" component={YoutubeForm} />
-        <Route exact path="/forms" component={Form} />
+        <Route exact path="/" component={Form} />
+        <Route exact path="/forms" component={YoutubeForm} />
       </Switch>
     </div>
   );

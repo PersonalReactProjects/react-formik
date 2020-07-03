@@ -56,7 +56,7 @@ function FormikMaterialUI() {
                                         <Box marginBottom={2}>
                                             <FormGroup>
                                                 <Field name="fullName" as={TextField} label="Full Name"
-                                                    error={errors.fullName}
+                                                    error={errors.fullName && props.touched.fullName}
                                                     helperText={errors.fullName}
                                                 />
                                             </FormGroup>
@@ -70,7 +70,7 @@ function FormikMaterialUI() {
                                                     type="number"
                                                     as={TextField}
                                                     label="Initial Investment"
-                                                    error={errors.initialInvestment}
+                                                    error={errors.initialInvestment && props.touched.initialInvestment}
                                                     helperText={errors.initialInvestment}
                                                 />
 
@@ -112,7 +112,7 @@ function FormikMaterialUI() {
                                                     rows={3}
                                                     rowsMax={10}
                                                     label="Comment About Investment Risk"
-                                                    error={errors.commentAboutInvestmentRisk}
+                                                    error={errors.commentAboutInvestmentRisk && props.touched.commentAboutInvestmentRisk}
                                                     helperText={errors.commentAboutInvestmentRisk}
                                                 />
 
@@ -126,7 +126,7 @@ function FormikMaterialUI() {
                                                     label="dependents"
                                                     as={TextField}
                                                     select
-                                                    error={errors.dependents}
+                                                    error={errors.dependents && props.touched.dependents}
                                                     helperText={errors.dependents}
                                                 >
                                                     <MenuItem value={-1}>Select ...</MenuItem>
@@ -154,6 +154,7 @@ function FormikMaterialUI() {
 
 
                                         <pre>{JSON.stringify(props, null, 4)}</pre>
+                                        <pre>{JSON.stringify(errors, null, 4)}</pre>
                                     </Form>
                                     )
                             }
@@ -167,6 +168,7 @@ function FormikMaterialUI() {
 
 
 export function MyCheckbox(props) {
+
     const [field] = useField({
         name: props.name,
         type: 'checkbox',
